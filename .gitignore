@@ -1,0 +1,18 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Compiled output
+out/
+build/
+*.class
+
+# Kotlin
+.kotlin/
+
+# Gradle (if used later)
+.gradle/
+
+# OS files
+.DS_Store
+Thumbs.db
