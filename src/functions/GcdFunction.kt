@@ -1,6 +1,45 @@
 package functions
 
-fun gcd(a: Int, b: Int): Int {
+// Student number: 24181012
+
+/**
+ * Asks for input from the user and validates it.
+ *
+ * @param name [String] - the name of the variable to ask the user.
+ *
+ * Prompts the user to enter a positive integer.
+ * - if the input is blank, it prompts again and shows an error.
+ * - if the input isn't a positive integer, it prompts again and shows an error.
+ *
+ * @return the input if it is a valid positive integer.
+ */
+fun validateInteger(name: String) : Int {
+    print("Enter a positive integer $name: ")
+    var n = readln()
+
+    while(n.isBlank() || n.toIntOrNull() == null || n.toInt() <= 0) {
+        if(n.isBlank()) {
+            print("Error: Input can't be empty, please enter a positive integer: ")
+        } else {
+            print("Error: Invalid input, please enter a positive integer: ")
+        }
+
+        n = readln()
+    }
+
+    return n.toInt()
+}
+
+/**
+ * Calculates the greatest common divisor of 2 given positive integers and prints it.
+ *
+ * Asks the user for two positive integers a and b until they're valid. When the input is valid,
+ * it calculates the greatest common divisor of the two.
+ */
+fun gcd() {
+    val a = validateInteger("a")
+    val b = validateInteger("b")
+
    var x = a
    var y = b
 
@@ -12,17 +51,6 @@ fun gcd(a: Int, b: Int): Int {
        y = remainder
    }
 
-
    // The last non-zero divisor is the GCD.
-   return x
+   println("The greatest common divisor of $a and $b is $x")
 }
-
-
-//// adding main function for testing purpose
-//fun main() {
-//   println(gcd(12, 8))    // Expected: 4
-//   println(gcd(15, 25))   // Expected: 5
-//   println(gcd(7, 9))     // Expected: 1
-//   println(gcd(20, 20))   // Expected: 20
-//   println(gcd(100, 25))  // Expected: 25
-//}
